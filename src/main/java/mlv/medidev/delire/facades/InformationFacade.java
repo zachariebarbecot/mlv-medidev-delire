@@ -8,6 +8,7 @@ package mlv.medidev.delire.facades;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import mlv.medidev.delire.models.Information;
 
 /**
@@ -28,5 +29,10 @@ public class InformationFacade extends AbstractFacade<Information> {
     public InformationFacade() {
         super(Information.class);
     }
-    
+
+    public Information findInformationdByIfmId(Object ifmId) {
+        Query q = em.createNamedQuery("Information.findByIfmId", Information.class);
+        q.setParameter("ifmId", ifmId);
+        return (Information) q.getSingleResult();
+    }
 }

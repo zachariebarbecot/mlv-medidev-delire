@@ -8,6 +8,7 @@ package mlv.medidev.delire.facades;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import mlv.medidev.delire.models.Doctor;
 
 /**
@@ -28,5 +29,16 @@ public class DoctorFacade extends AbstractFacade<Doctor> {
     public DoctorFacade() {
         super(Doctor.class);
     }
-    
+
+    public Doctor findDoctorByDtrId(Object dtrId) {
+        Query q = em.createNamedQuery("Doctor.findByDtrId", Doctor.class);
+        q.setParameter("dtrId", dtrId);
+        return (Doctor) q.getSingleResult();
+    }
+
+    public Doctor findDoctorByDtrStatus(int dtrStatus) {
+        Query q = em.createNamedQuery("Doctor.findByDtrStatus", Doctor.class);
+        q.setParameter("dtrStatus", dtrStatus);
+        return (Doctor) q.getSingleResult();
+    }
 }
