@@ -22,11 +22,14 @@ public class AttachementFacade extends AbstractFacade<Attachement> {
 
     @Override
     protected EntityManager getEntityManager() {
+        
         return em;
+        
     }
 
     public AttachementFacade() {
         super(Attachement.class);
     }
+    
     
 }

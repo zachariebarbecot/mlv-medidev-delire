@@ -5,13 +5,16 @@
  */
 package mlv.medidev.delire.beans;
 
+import java.util.Date;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import mlv.medidev.delire.facades.DivisionFacade;
+import mlv.medidev.delire.facades.MedicalRecordFacade;
 import mlv.medidev.delire.models.Division;
+import mlv.medidev.delire.models.MedicalRecord;
 
 /**
  *
@@ -27,12 +30,14 @@ public class DivisionBean {
 
     @EJB
     private DivisionFacade dvsFacade;
+    
+    @EJB
+    private MedicalRecordFacade medF;
+    
 
     /**
      * Creates a new instance of DivisionBean
      */
-    public DivisionBean() {
-    }
 
     public String createDivision() {
         if (name != null) {
