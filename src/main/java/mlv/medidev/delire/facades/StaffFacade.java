@@ -5,6 +5,7 @@
  */
 package mlv.medidev.delire.facades;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -33,6 +34,10 @@ public class StaffFacade extends AbstractFacade<Staff> {
     public Staff findByStfUsername(String username) {
         Query q = this.em.createNamedQuery("Staff.findByStfUsername", Staff.class);
         q.setParameter("stfUsername", username);
-        return (Staff) q.getSingleResult();
+        List<Staff> list = q.getResultList();
+        if(list == null || list.isEmpty()) {
+            return null;
+        }
+        return list.get(0);
     }
 }

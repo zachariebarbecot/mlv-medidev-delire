@@ -9,10 +9,19 @@
 	ifm_phone VARCHAR(14) NOT  NULL
  );
  
+INSERT INTO information (ifm_lname, ifm_fname, ifm_birthday, ifm_address,
+    ifm_zip, ifm_city, ifm_phone) VALUES ('House', 'Gregory', '15-05-1959', 'Appartement B, 221 Baker Street',
+    '08541', 'Princeton, New Jersey', '416-322-3303');
+INSERT INTO information (ifm_lname, ifm_fname, ifm_birthday, ifm_address,
+    ifm_zip, ifm_city, ifm_phone) VALUES ('PELDI', 'William', '15-08-1964', '12, Rue de la Paix',
+    '75018', 'Paris', '06.37.38.37.83');
+
  CREATE TABLE role (
 	rl_id SERIAL PRIMARY KEY NOT NULL,
 	rl_name VARCHAR(128)
  );
+
+INSERT INTO role (rl_name) VALUES ('medecin');
  
  CREATE TABLE staff (
 	stf_id SERIAL PRIMARY KEY NOT NULL,
@@ -22,6 +31,8 @@
 	rl_id INT NOT NULL REFERENCES role(rl_id)
 	
  );
+
+INSERT INTO staff (stf_username, stf_password, ifm_id, rl_id) VALUES ('dr.house@gmail.com', 'azerty', 1, 1);
 
  CREATE TABLE doctor (
 	dtr_id SERIAL PRIMARY KEY NOT NULL,
@@ -44,6 +55,8 @@
 	dtr_id INT REFERENCES doctor(dtr_id),
 	rl_id INT REFERENCES role(rl_id)
  );
+
+INSERT INTO medical_record (mdr_created, ifm_id, rl_id) VALUES (current_timestamp, 2, 1);
  
  CREATE TABLE dss_mdr (
 	dss_id INT NOT NULL REFERENCES disease(dss_id),

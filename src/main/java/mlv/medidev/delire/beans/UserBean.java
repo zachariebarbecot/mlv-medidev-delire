@@ -48,6 +48,7 @@ public class UserBean implements Serializable {
                         user = tmp;
                         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Connexion réussie", null));
                         FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
+                        return "toMedicalRecord";
                     } else {
                         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Mauvais password", null));
                         FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);

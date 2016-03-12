@@ -41,7 +41,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "MedicalRecord.findByMdrCreated", query = "SELECT m FROM MedicalRecord m WHERE m.mdrCreated = :mdrCreated"),
     @NamedQuery(name = "MedicalRecord.findByMdrLastModification", query = "SELECT m FROM MedicalRecord m WHERE m.mdrLastModification = :mdrLastModification"),
     @NamedQuery(name = "MedicalRecord.findByMdrLastConsultation", query = "SELECT m FROM MedicalRecord m WHERE m.mdrLastConsultation = :mdrLastConsultation"),
-    @NamedQuery(name = "MedicalRecord.findByMdrLastBackup", query = "SELECT m FROM MedicalRecord m WHERE m.mdrLastBackup = :mdrLastBackup")})
+    @NamedQuery(name = "MedicalRecord.findByMdrLastBackup", query = "SELECT m FROM MedicalRecord m WHERE m.mdrLastBackup = :mdrLastBackup"),
+    @NamedQuery(name = "MedicalRecord.findByRlId", query = "SELECT m FROM MedicalRecord m WHERE m.rlId = :rlId")})
 public class MedicalRecord implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -199,5 +200,5 @@ public class MedicalRecord implements Serializable {
     public String toString() {
         return "mlv.medidev.delire.models.MedicalRecord[ mdrId=" + mdrId + " ]";
     }
-    
+
 }
