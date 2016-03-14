@@ -68,15 +68,15 @@
                                         <!-- The user image in the navbar-->
                                         <h:graphicImage class="user-image" alt="User Image" library="dist" name="img/user2-160x160.jpg" />
                                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                        <span class="hidden-xs">Dr. House</span>
+                                        <span class="hidden-xs">#{user.user.ifmId.ifmFname} #{user.user.ifmId.ifmLname}</span>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <!-- The user image in the menu -->
                                         <li class="user-header">
                                             <h:graphicImage class="img-circle" alt="User Image" library="dist" name="img/user2-160x160.jpg" />
                                             <p>
-                                                Dr House - Cardiologue
-                                                <small>Unité Hospitaliére</small>
+                                                #{user.user.ifmId.ifmFname} #{user.user.ifmId.ifmLname}
+                                                #{user.user.rlId.rlName}
                                             </p>
                                         </li>
                                         <!-- Menu Body -->
